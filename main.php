@@ -40,23 +40,35 @@
 
             <div class="knowledge">
                                    
-                    <?php  include 'knowledge.inc.php'; ?>
-                    <?php   echo $a, ' ', $b, $c; ?> <br>
-                                       
+                                           
                     <?php
-                        $a = 10;
-                        $b = 20;
+					  session_start();
+					    $a = rand(0, 5);
+                        $b = rand(0, 20);
                         $c = $a + $b;
-                        echo 'Полученное число после операции сложения:', ' ', $c;
-                    ?>   <br>                
-                     
+						$_SESSION['data'] = $c;
+                        echo 'Полученное число после операции сложения двух рандомных чисел:', ' ', $_SESSION['data'] . '<br>';
+						echo 'Это число с типом', ' ', gettype($_SESSION['data']);
+                    ?>   <br>
+					
+					<?php  include 'knowledge.inc.php'; ?>
+					
 					<?php
                         echo $d;
-                    ?>   <br> 
-                    
+                    ?>   <br><br>
+					
+					<?php   
+					    echo $a, ' ', $b, $c; 
+					?>   <br>
+                                         
 					<?php
                         echo $dr;
-                    ?>   <br> 
+                    ?>   <br><br>
+					
+					<?php
+					echo 'PS. Рандомные числа генерируются после каждого обновления страницы.' . '<br>' . 'Попробуйте, это весело' . '<br>' . '<br>';
+					echo 'PSPS. Затем эти числа складываются и полученное значение передается' . '<br>' . 'на другую страницу';
+					?>   <br>
 
 
             </div>
